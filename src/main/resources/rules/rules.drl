@@ -1,0 +1,281 @@
+package rules;
+import com.zeronsec.event.object.Event;
+import java.util.HashMap;
+
+
+rule "_VgiHmf5H7NfNA"
+when 
+    //$event1 : Event ($srcioc: srcioc != null)
+    $event : Event ($srcioc: srcioc != null && srcioc.size() > 0 && srcioc.get(0).getScore() != null)
+then
+
+    $event.setSingleEvent("_VgiHmf5H7NfNA","1");
+end
+
+rule "TYG8i5GJYidPAg"
+when 
+    //$event : Event (1 == 1)
+    $event : Event (($srcioc: srcioc != null && srcioc.size() > 0 && srcioc.get(0).getScore() != null) && (destPort != null && destPort.equalsIgnoreCase("22")))
+then            
+
+    $event.setSingleEvent("TYG8i5GJYidPAg","1");
+end
+
+rule "cA6IrRkCerYxdQ"
+when 
+    $event : Event ((($srcioc: srcioc != null && srcioc.size() > 0 && srcioc.get(0).getScore() != null) && (destPort != null && destPort.equalsIgnoreCase("3389"))))
+then            
+ 
+    $event.setSingleEvent("cA6IrRkCerYxdQ","1");
+end
+
+rule "40AhUPigKkKI9A"
+when 
+    $event : Event ((($srcioc: srcioc != null && srcioc.size() > 0 && srcioc.get(0).getScore() != null)) && ((destPort != null && destPort.equalsIgnoreCase("3306")) || (destPort != null && destPort.equalsIgnoreCase("1433"))))
+then            
+     $event.setSingleEvent("40AhUPigKkKI9A","1");
+end
+
+rule "iaJDtmHtaiN6Ew"
+when 
+    $event : Event ((($destioc: destioc != null && destioc.size() > 0 && destioc.get(0).getScore() != null)))
+then            
+     $event.setSingleEvent("iaJDtmHtaiN6Ew","1");
+end
+
+rule "qj1WsrlOY1DkXA"
+when 
+    $event : Event ((deviceAction != null && deviceAction.equalsIgnoreCase("accept")))
+then            
+     $event.setSingleEvent("qj1WsrlOY1DkXA","1");
+end
+
+rule "mmp1mQ14pnBZBg"
+when 
+    $event : Event ((($destioc: destioc != null && destioc.size() > 0 && destioc.get(0).getScore() != null)) && ((deviceAction != null && deviceAction.equalsIgnoreCase("pass")) || (deviceAction != null && deviceAction.equalsIgnoreCase("accept"))))
+then            
+     $event.setSingleEvent("mmp1mQ14pnBZBg","1");
+end
+
+rule "qRfKzL3D9QNd4g"
+when 
+    $event : Event ((status != null && status.equalsIgnoreCase("success")) && (deviceAction != null && deviceAction.equalsIgnoreCase("login")) && (deviceVendor != null && deviceVendor.equalsIgnoreCase("Fortigate")))
+then            
+
+    $event.setSingleEvent("qRfKzL3D9QNd4g","1");
+end
+
+rule "7oHMo1N0NDSVXQ"
+when 
+    $event : Event ((deviceVendor != null && deviceVendor.equalsIgnoreCase("Fortigate")) && (destUser != null) && (deviceAction != null && deviceAction.equalsIgnoreCase("login")) && (status != null && status.equalsIgnoreCase("failed")))
+then            
+
+    $event.setSingleEvent("7oHMo1N0NDSVXQ","1");
+end
+
+rule "wUZXxCLV5CvsZw"
+when 
+    $event : Event ((deviceAction != null && deviceAction.equalsIgnoreCase("logout")) && (destUser != null) && (status != null && status.equalsIgnoreCase("success")))
+then            
+
+    $event.setSingleEvent("wUZXxCLV5CvsZw","1");
+end
+
+rule "NdNRv5C04lLxjg"
+when 
+    $event : Event ((deviceAction != null && deviceAction.equalsIgnoreCase("Add")) && (vendorEName != null && vendorEName.equalsIgnoreCase("Object attribute configured")) && (msg != null && msg.contains("Add user.local")))
+then            
+
+    $event.setSingleEvent("NdNRv5C04lLxjg","1");
+end
+
+rule "VLVMrsFcpVkNzw"
+when 
+    $event : Event ((name != null) && (deviceVendor != null) && (status != null && status.equalsIgnoreCase("enable")))
+then            
+
+    $event.setSingleEvent("VLVMrsFcpVkNzw","1");
+end
+
+rule "eGlc70AesPlEaQ"
+when 
+    $event : Event ((name != null) && (status != null && status.equalsIgnoreCase("disable")) && (deviceVendor != null))
+then            
+
+    $event.setSingleEvent("eGlc70AesPlEaQ","1");
+end
+
+rule "NSDI4f7WMZWDlg"
+when 
+    $event : Event (((srcIp != null) && (destPort != null)) && ((networkDirection != null && networkDirection.toLowerCase() == "in") || (eventDirection != null && eventDirection.toLowerCase() == "inbound")))
+then            
+
+   $event.setIdenticalEvent("NSDI4f7WMZWDlg","1");
+end
+
+rule "aqvxUPISp7LPPw"
+when 
+    $event : Event ((srcIp != null && srcIp.equalsIgnoreCase("192.168.1.100")) && (destPort != null && destPort.equalsIgnoreCase("2233")))
+then            
+
+    $event.setSingleEvent("aqvxUPISp7LPPw","1");
+end
+
+rule "Whd3Gnf6qu5bug"
+when 
+    $event : Event ((status != null && status.equalsIgnoreCase("denied")) && (deviceAction != null && deviceAction.equalsIgnoreCase("Login")) && (destUser != null && destUser != null))
+then            
+
+    $event.setIdenticalEvent("Whd3Gnf6qu5bug","1");
+end
+
+rule "VIBZO-wmMUmcQQ"
+when 
+    $event : Event ((status != null && status.equalsIgnoreCase("permitted")) && (destUser != null) && (deviceAction != null && deviceAction.equalsIgnoreCase("Login")))
+then            
+
+    $event.setSingleEvent("VIBZO-wmMUmcQQ","1");
+end
+
+rule "Ak-zks-ABYpoew"
+when 
+    $event : Event ((deviceVendor != null && deviceVendor.equalsIgnoreCase("Cisco")) && (status != null && status.equalsIgnoreCase("denied")) && (destUser != null) && (deviceAction != null && deviceAction.equalsIgnoreCase("Login")))
+then            
+
+    $event.setSingleEvent("Ak-zks-ABYpoew","1");
+end
+
+rule "GpR-BzhvOTHpXg"
+when 
+    $event : Event ((networkDirection != null && networkDirection.equalsIgnoreCase("in")) || (eventDirection != null && eventDirection.equalsIgnoreCase("inbound")) && ((destPort != null && srcIp != null)))
+then            
+
+    $event.setIdenticalEvent("GpR-BzhvOTHpXg","1");
+end
+
+rule "ksF3YdKK-1mhug"
+when 
+    $event : Event ((message != null && message.contains("success")) && (deviceAction != null && deviceAction.equalsIgnoreCase("login")))
+then            
+
+    $event.setSingleEvent("ksF3YdKK-1mhug","1");
+end
+
+rule "5lZZA3icDI5lNg"
+when 
+    $event : Event ((vendorEId != null && vendorEId.equalsIgnoreCase("1")) && ((destHashSHA1iocThreatCategory != null) || (destHashMd5iocThreatCategory != null) || (destHashSha256iocThreatCategory != null)))
+then            
+
+    $event.setSingleEvent("5lZZA3icDI5lNg","1");
+end
+
+rule "iEHwjnhlRHZDEg"
+when 
+    $event : Event ((vendorEId != null && vendorEId.equalsIgnoreCase("1")))
+then            
+
+    $event.setSingleEvent("iEHwjnhlRHZDEg","1");
+end
+
+rule "vF9R_Nb_5nGWzA"
+when 
+    $event : Event ((vendorEId != null && vendorEId.equalsIgnoreCase("1102")))
+then            
+
+    $event.setSingleEvent("vF9R_Nb_5nGWzA","1");
+end
+
+rule "BYnTnzY1alrY4w"
+when 
+    $event : Event ((vendorEId != null && vendorEId.equalsIgnoreCase("4670")))
+then            
+
+    $event.setSingleEvent("BYnTnzY1alrY4w","1");
+end
+
+rule "gPND_Vq6w8F4Mw"
+when 
+    $event : Event ((vendorEId != null && vendorEId.equalsIgnoreCase("4625")))
+then            
+
+    $event.setIdenticalEvent("gPND_Vq6w8F4Mw","1");
+end
+
+rule "aSt1kDx4WA_mJw"
+when 
+    $event : Event ((vendorEId != null && vendorEId.equalsIgnoreCase("1")))
+then            
+
+    $event.setSingleEvent("aSt1kDx4WA_mJw","1");
+end
+
+rule "1kgkS4f5BBSAHw"
+when 
+    $event : Event ((vendorEId != null && vendorEId.equalsIgnoreCase("1")))
+then            
+
+    $event.setSingleEvent("1kgkS4f5BBSAHw","1");
+end
+
+rule "Cl5plmL8VckRYw"
+when 
+    $event : Event (((destProcess!= null && destProcess.equalsIgnoreCase("net.exe")) && (srcProcess != null && !srcProcess.equalsIgnoreCase("net.exe"))) || ((destProcess != null && destProcess.equalsIgnoreCase("whoami.exe"))) && ((winlogIntegrityLevel != null && winlogIntegrityLevel.equalsIgnoreCase("System"))) && ((vendorEId != null && vendorEId.equalsIgnoreCase("1"))))
+then            
+
+    $event.setSingleEvent("Cl5plmL8VckRYw","1");
+end
+
+rule "Ti2DTwz-40W03A"
+when 
+    $event : Event ((vendorEId != null && vendorEId.equalsIgnoreCase("4726")))
+then            
+
+    $event.setSingleEvent("Ti2DTwz-40W03A","1");
+end
+
+rule "aYlWzvPHUdZz-g"
+when 
+    $event : Event (((vendorEId != null && vendorEId.equalsIgnoreCase("7045"))) && ((winlogEventDataServiceName != null && winlogEventDataServiceName.equalsIgnoreCase("AnyDesk Service"))))
+then            
+
+    $event.setSingleEvent("aYlWzvPHUdZz-g","1");
+end
+
+rule "t3s9Da83HNp8jQ"
+when 
+    $event : Event ((vendorEId != null && vendorEId.equalsIgnoreCase("4722")))
+then            
+
+    $event.setSingleEvent("t3s9Da83HNp8jQ","1");
+end
+
+rule "eSG4BtoEXz2DFg"
+when 
+    $event : Event ((vendorEId != null && vendorEId.equalsIgnoreCase("5142")))
+then            
+
+    $event.setIdenticalEvent("eSG4BtoEXz2DFg","1");
+end
+
+rule "s8_dbXQO9z7ucQ"
+when 
+    $event : Event ((vendorEId != null && vendorEId.equalsIgnoreCase("1")) && ((destFilePath != null && destFilePath.equalsIgnoreCase("C:\\Windows\\System32\\SnippingTool.exe"))))
+then            
+    $event.setSingleEvent("s8_dbXQO9z7ucQ","1");
+end
+
+rule "p-oQ6OXtRLyfVA"
+when 
+    $event : Event ((vendorEId != null && vendorEId.equalsIgnoreCase("7045")) && (destUser != null && !destUser.equalsIgnoreCase("SYSTEM")))
+then            
+
+    $event.setSingleEvent("p-oQ6OXtRLyfVA","1");
+end
+
+rule "R6lHEgbvrEhbOw"
+when 
+    $event : Event ((logonType != null && !logonType.equalsIgnoreCase("5")) && (vendorEId != null && vendorEId.equalsIgnoreCase("4624")) || (logonType != null && logonType.equalsIgnoreCase("3")) && ( sourceNetworkAddress != null && !sourceNetworkAddress.equalsIgnoreCase("::1")))
+then            
+
+    $event.setIdenticalEvent("R6lHEgbvrEhbOw","1");
+end
